@@ -316,6 +316,7 @@ auto main() -> int {
   std::string color6{"\x1B[36m"};
   std::string color7{"\x1B[37m"};
   std::string color8{"\x1B[90m"};
+  std::string colReset{"\x1B[0m"};
 
   std::string pacman{" 󰮯   "};
   std::string ghost{"󰊠   "};
@@ -337,13 +338,13 @@ auto main() -> int {
 
   std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⢀⢀⠀⣄⢂⣀⣂⣤⣀⢀⢀⠀⠀⠀⠀⠀⠀   ╭─────┬─────────────────────────────╮\n";
   std::cout << color8 + "    ⠀⠀⠀⠀⣄⣰⣝⣉⣙⢱⣞⠜⡖⣌⣌⣁⣻⣠⣀⠀⠀⠀⠀   │  "  + color4 + "" + color8  + "  │  " + color2 + title  + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⠀⢔⢽⣊⣂⣇⡒⠮⢻⣇⠲⢍⣿⢟⣒⣰⣠⣑⡔⣀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + color7 + distro + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⠹⡸⢙⣕⡐⢂⠍⣩⡻⣿⣆⣾⠟⣉⢣⠪⠲⡰⡋⣢⢆⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + color7 + kernel + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⣪⡹⣵⢦⠽⡓⠶⠶⣧⣹⣿⣏⣴⠶⠛⠟⠽⢛⣒⢮⡙⠀  ⠀│  "  + color4 + "󰙀" + color8  + "  │  " + color7 + wmname + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠸⢋⢪⠑⢩⠈⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠘⢠⠈⠆⢎⢱⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + color7 + memory + color8 + "│\n";
-  std::cout << color8 + "⠀⠀⠀ ⠀⠻⡕⡲⡈⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠆⠄⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + color7 + term   + color8 + "│\n";
-  std::cout << color8 + "    ⠀⠀⠀⠇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣤⡀⠀⠀⠀⠀⠌⠘⠀⠀  ⠀│  "  + color4 + "󰔚" + color8  + "  │  " + color7 + uptime + color8 + "│\n";
-  std::cout << color8 + "    ⠀⠀⠀⢱⠒⡶⡶⢖⣫⡿⢻⠿⡟⢿⣍⡱⢖⠶⠒⡆⠀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + color7 + pkgs   + color8 + "│\n";
+  std::cout << color8 + "  ⠀ ⠀⠀⢔⢽⣊⣂⣇⡒⠮⢻⣇⠲⢍⣿⢟⣒⣰⣠⣑⡔⣀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + distro + color8 + "│\n";
+  std::cout << color8 + "  ⠀ ⠀⠹⡸⢙⣕⡐⢂⠍⣩⡻⣿⣆⣾⠟⣉⢣⠪⠲⡰⡋⣢⢆⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + kernel + color8 + "│\n";
+  std::cout << color8 + "  ⠀ ⠀⣪⡹⣵⢦⠽⡓⠶⠶⣧⣹⣿⣏⣴⠶⠛⠟⠽⢛⣒⢮⡙⠀  ⠀│  "  + color4 + "󰙀" + color8  + "  │  " + colReset + wmname + color8 + "│\n";
+  std::cout << color8 + "  ⠀ ⠸⢋⢪⠑⢩⠈⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠘⢠⠈⠆⢎⢱⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + memory + color8 + "│\n";
+  std::cout << color8 + "⠀⠀⠀ ⠀⠻⡕⡲⡈⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠆⠄⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + term   + color8 + "│\n";
+  std::cout << color8 + "    ⠀⠀⠀⠇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣤⡀⠀⠀⠀⠀⠌⠘⠀⠀  ⠀│  "  + color4 + "󰔚" + color8  + "  │  " + colReset + uptime + color8 + "│\n";
+  std::cout << color8 + "    ⠀⠀⠀⢱⠒⡶⡶⢖⣫⡿⢻⠿⡟⢿⣍⡱⢖⠶⠒⡆⠀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + pkgs   + color8 + "│\n";
   std::cout << color8 + "  ⠀ ⠀⠀⠀⠀⠁⠬⡃⠴⣇⣴⠏⠖⠙⣦⣸⠦⡼⠣⠉⠀⠀⠀⠀  ⠀│─────┴─────────────────────────────┤\n";
   std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⠈⠁⠑⠢⠧⠭⠼⠵⠋⠊⠁⠀⠀⠀⠀⠀⠀  ⠀│ "        +  colorsInfo  +       " │\n";
   std::cout << color8 + "     ⠀⠀⠀⠀⠀⠀             ⠀⠀⠀⠀  ╰───────────────────────────────────╯\n";
