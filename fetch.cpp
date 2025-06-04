@@ -336,18 +336,31 @@ auto main() -> int {
   std::string term{padString(getTerminalEmulatorName(), infoLength)};
   std::string pkgs{padString(getPacmanPackageCount() + " (pacman)", infoLength)};
 
-  std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⢀⢀⠀⣄⢂⣀⣂⣤⣀⢀⢀⠀⠀⠀⠀⠀⠀   ╭─────┬─────────────────────────────╮\n";
-  std::cout << color8 + "    ⠀⠀⠀⠀⣄⣰⣝⣉⣙⢱⣞⠜⡖⣌⣌⣁⣻⣠⣀⠀⠀⠀⠀   │  "  + color4 + "" + color8  + "  │  " + color2 + title  + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⠀⢔⢽⣊⣂⣇⡒⠮⢻⣇⠲⢍⣿⢟⣒⣰⣠⣑⡔⣀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + distro + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⠹⡸⢙⣕⡐⢂⠍⣩⡻⣿⣆⣾⠟⣉⢣⠪⠲⡰⡋⣢⢆⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + kernel + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⣪⡹⣵⢦⠽⡓⠶⠶⣧⣹⣿⣏⣴⠶⠛⠟⠽⢛⣒⢮⡙⠀  ⠀│  "  + color4 + "󰙀" + color8  + "  │  " + colReset + wmname + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠸⢋⢪⠑⢩⠈⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠘⢠⠈⠆⢎⢱⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + memory + color8 + "│\n";
-  std::cout << color8 + "⠀⠀⠀ ⠀⠻⡕⡲⡈⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠆⠄⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + term   + color8 + "│\n";
-  std::cout << color8 + "    ⠀⠀⠀⠇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣤⡀⠀⠀⠀⠀⠌⠘⠀⠀  ⠀│  "  + color4 + "󰔚" + color8  + "  │  " + colReset + uptime + color8 + "│\n";
-  std::cout << color8 + "    ⠀⠀⠀⢱⠒⡶⡶⢖⣫⡿⢻⠿⡟⢿⣍⡱⢖⠶⠒⡆⠀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + pkgs   + color8 + "│\n";
-  std::cout << color8 + "  ⠀ ⠀⠀⠀⠀⠁⠬⡃⠴⣇⣴⠏⠖⠙⣦⣸⠦⡼⠣⠉⠀⠀⠀⠀  ⠀│─────┴─────────────────────────────┤\n";
-  std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⠈⠁⠑⠢⠧⠭⠼⠵⠋⠊⠁⠀⠀⠀⠀⠀⠀  ⠀│ "        +  colorsInfo  +       " │\n";
-  std::cout << color8 + "     ⠀⠀⠀⠀⠀⠀             ⠀⠀⠀⠀  ╰───────────────────────────────────╯\n";
+  // std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⢀⢀⠀⣄⢂⣀⣂⣤⣀⢀⢀⠀⠀⠀⠀⠀⠀   ╭─────┬─────────────────────────────╮\n";
+  // std::cout << color8 + "    ⠀⠀⠀⠀⣄⣰⣝⣉⣙⢱⣞⠜⡖⣌⣌⣁⣻⣠⣀⠀⠀⠀⠀   │  "  + color4 + "" + color8  + "  │  " + color2 + title  + color8 + "│\n";
+  // std::cout << color8 + "  ⠀ ⠀⠀⢔⢽⣊⣂⣇⡒⠮⢻⣇⠲⢍⣿⢟⣒⣰⣠⣑⡔⣀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + distro + color8 + "│\n";
+  // std::cout << color8 + "  ⠀ ⠀⠹⡸⢙⣕⡐⢂⠍⣩⡻⣿⣆⣾⠟⣉⢣⠪⠲⡰⡋⣢⢆⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + kernel + color8 + "│\n";
+  // std::cout << color8 + "  ⠀ ⠀⣪⡹⣵⢦⠽⡓⠶⠶⣧⣹⣿⣏⣴⠶⠛⠟⠽⢛⣒⢮⡙⠀  ⠀│  "  + color4 + "󰙀" + color8  + "  │  " + colReset + wmname + color8 + "│\n";
+  // std::cout << color8 + "  ⠀ ⠸⢋⢪⠑⢩⠈⠀⠀⠀⠈⣿⣿⣿⠁⠀⠀⠘⢠⠈⠆⢎⢱⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + memory + color8 + "│\n";
+  // std::cout << color8 + "⠀⠀⠀ ⠀⠻⡕⡲⡈⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠆⠄⠁  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + term   + color8 + "│\n";
+  // std::cout << color8 + "    ⠀⠀⠀⠇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣤⡀⠀⠀⠀⠀⠌⠘⠀⠀  ⠀│  "  + color4 + "󰔚" + color8  + "  │  " + colReset + uptime + color8 + "│\n";
+  // std::cout << color8 + "    ⠀⠀⠀⢱⠒⡶⡶⢖⣫⡿⢻⠿⡟⢿⣍⡱⢖⠶⠒⡆⠀⠀⠀  ⠀│  "  + color4 + "" + color8  + "  │  " + colReset + pkgs   + color8 + "│\n";
+  // std::cout << color8 + "  ⠀ ⠀⠀⠀⠀⠁⠬⡃⠴⣇⣴⠏⠖⠙⣦⣸⠦⡼⠣⠉⠀⠀⠀⠀  ⠀│─────┴─────────────────────────────┤\n";
+  // std::cout << color8 + "    ⠀⠀⠀⠀⠀⠀⠈⠁⠑⠢⠧⠭⠼⠵⠋⠊⠁⠀⠀⠀⠀⠀⠀  ⠀│ "        +  colorsInfo  +       " │\n";
+  // std::cout << color8 + "     ⠀⠀⠀⠀⠀⠀             ⠀⠀⠀⠀  ╰───────────────────────────────────╯\n";
+
+  std::cout << color8 + "                                ╭─────┬─────────────────────────────╮\n";
+  std::cout << color8 + "                                │  "  + color4 + "" + color8  + "  │  " + color2 + title  + color8 + "│\n";
+  std::cout << color8 + "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⡀⠀   │  "  + color4 + "" + color8  + "  │  " + colReset + distro + color8 + "│\n";
+  std::cout << color8 + "  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠠⣀⣠⣶⣶⣶⣿⣿⣿⣟⠟⠉⠁⠀⠉   │  "  + color4 + "" + color8  + "  │  " + colReset + kernel + color8 + "│\n";
+  std::cout << color8 + "  ⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣵⣶⣿⣿⣿⡿⣟⢿⡝⠙⠀⠤⠤⣤⣤⡶⠂   │  "  + color4 + "󰙀" + color8  + "  │  " + colReset + wmname + color8 + "│\n";
+  std::cout << color8 + "  ⠀⠀⠀⠀⢀⠴⣪⣾⣿⣿⣿⣿⣿⢿⡿⠃⢿⢸⣧⡍⠭⣭⣿⡿⠋⠀⠀   │  "  + color4 + "" + color8  + "  │  " + colReset + memory + color8 + "│\n";
+  std::cout << color8 + "⠀⠀⠀⠀⠀⢀⣵⣿⣿⣿⣿⣿⢯⠟⡵⠋ ⢠⢾⣿⣿⣿⡤⣼⢏⣠⣀⠀⠀   │  "  + color4 + "" + color8  + "  │  " + colReset + term   + color8 + "│\n";
+  std::cout << color8 + "   ⠀⣰⣻⣿⣿⣿⣾⣿⣧⢡⣘⠁⠀⠀⠘⣄⣻⣿⣿⣷⣿⣿⡿⠍⠁⠀   │  "  + color4 + "󰔚" + color8  + "  │  " + colReset + uptime + color8 + "│\n";
+  std::cout << color8 + "   ⡇⡿⣿⣿⣿⡿⣿⡻⣿⣜⢄⣶⣤⣀⠀⠀⠀⠈⠛⢻⣟⠫⠉⠀⠀⠀   │  "  + color4 + "" + color8  + "  │  " + colReset + pkgs   + color8 + "│\n";
+  std::cout << color8 + "  ⠀⠣⡻⣌⡻⠿⣿⣮⣽⣿⣶⣾⣿⣳⠶⠖⠬⠍⠃⠀⠀⠀⠀⠀⠀⠀⠀   │─────┴─────────────────────────────┤\n";
+  std::cout << color8 + "  ⠀⠀⠈⠀⠉⠉⠙⠛⠛⠒⠓⠒⠀⠀⠀⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   │  "        +  colorsInfo  +       "│\n";
+  std::cout << color8 + "                                ╰───────────────────────────────────╯\n";
   // clang-format on
 
   return 0;
