@@ -1,20 +1,39 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Ofast
+CXXFLAGS = -std=c++17 -Ofast -Iinclude
 LDFLAGS = -lX11
-TARGET = fetch
-SRC = fetch.cpp
-PREFIX = /usr/local
 
-all: $(TARGET)
+SRCDIR := src
+INCDIR := include
+BUILDDIR := build
+TARGET := fetch
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
+SRCS := $(wildcard $(SRCDIR)/*.cpp)
+OBJS := $(patsubst $(SRCDIR)/%.cpp, $(BUILDDIR)/%.o, $(SRCS))
+DEPS := $(OBJS:.o=.d)
 
-install: $(TARGET)
-	install -Dm755 $(TARGET) $(PREFIX)/bin/$(TARGET)
+PREFIX := /usr/local
+BINDIR := $(PREFIX)/bin
 
-uninstall:
-	rm -f $(PREFIX)/bin/$(TARGET)
+.PHONY: all build clean install uninstall
+
+all: build
+
+build: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@ $(LDFLAGS)
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(BUILDDIR)
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+-include $(DEPS)
 
 clean:
-	rm -f $(TARGET)
+	rm -rf $(BUILDDIR) $(TARGET)
+
+install: $(TARGET)
+	install -Dm755 $(TARGET) $(BINDIR)/$(TARGET)
+
+uninstall:
+	rm -f $(BINDIR)/$(TARGET)
